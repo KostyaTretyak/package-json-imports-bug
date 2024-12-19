@@ -1,0 +1,46 @@
+{
+  "name": "starter",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "repository": "https://github.com/ts-stack/starter",
+  "exports": {
+    "./package.json": {
+      "default": "./package.json"
+    },
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "imports": {
+    "#lib/*": "./dist/*"
+  },
+  "scripts": {
+    "start": "npm run build && node dist/index.js",
+    "test": "npm run build && npm run esm-jest",
+    "esm-jest": "node --experimental-vm-modules --no-warnings=ExperimentalWarning node_modules/jest/bin/jest.js",
+    "build": "tsc -b tsconfig.build.json",
+    "clean": "rimraf dist*"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@eslint/js": "^9.11.1",
+    "@types/eslint__js": "^8.42.3",
+    "@types/jest": "^29.5.13",
+    "@types/node": "^20.16.7",
+    "eslint": "^8.57.1",
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.7",
+    "prettier": "^3.3.3",
+    "rimraf": "^5.0.10",
+    "ts-node": "^10.9.2",
+    "typescript": "~5.5.4",
+    "typescript-eslint": "^8.7.0"
+  },
+  "engines": {
+    "node": ">= 20.6.0"
+  }
+}
